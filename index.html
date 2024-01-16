@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <h1>Weather, Now!</h1>
+</header>
+<body>
+    <div class="inline">
+        <div id="city-finder">
+            <form action="" id="zip-form">
+                <label for="zipcode-field">Zipcode</label><br>
+                <input type="text" name="zipcode-field" id="zipcode-field" required><br>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+            <div id="city-name">
+                <h3 id="city-header">&larr; Choose Your City</h3>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="branch" id="temp-holder">
+            <div id="temps">
+                <h1 class="displays" id="temp-header">Waiting for... </h1>
+                <div class="displays" id="temps-block">
+                    <div class="displays" id="actual-block"> 
+                        <h2 class="displays" id="actual-header">Pick your zipcode<br> for up to date weather info!</h2>
+                        <img src="./weather.png" alt="weather-pic">
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="branch" id="sun-holder">
+            <div id="conditions">
+                <h1 class="displays" id="condition-header">...city choice </h1>
+                <div class="displays" id="condition-block"> 
+                    <div class="displays" id="weather">
+                        <h2 class="displays" id="cond-header">Weather changes quickly<br>Stay up to date<br> with Weather, Now!</h2>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </main>
+</body>
+</html>

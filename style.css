@@ -1,0 +1,117 @@
+*{
+    font-family: 'Roboto', sans-serif;
+
+}
+header{
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 7%;
+}
+
+body{
+    background-color: rgb(200, 245, 245);
+}
+
+#submit{
+    background-color: rgba(255, 255, 255, 0.705);
+    border-radius: 7px;
+    border: 1px solid rgb(122, 122, 122);
+    height: 25px;
+    width: 65px;
+}
+#city-finder{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: 8%;
+    margin-bottom: 30px;
+
+}
+.inline{
+    display: inline;
+    width: 30%;
+}
+
+#zipcode-field{
+    margin-bottom: 7px;
+    border: none;
+    border-right:2px rgb(122, 122, 122) solid;
+    border-bottom:2px rgb(122, 122, 122) solid;
+    border-radius: 6px;
+    height: 25px;
+    text-indent: 5px;
+    background-color: rgba(255, 255, 255, 0.705);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+main>div{
+    justify-self: center;
+    border-right: 3px rgb(122, 122, 122) solid;
+    border-bottom: 3px rgb(122, 122, 122) solid;
+    background-color: rgba(255, 255, 255, 0.274);
+    border-radius: 10px;
+    width: 40%;
+}
+
+div>h1{
+    text-align: center;
+}
+
+/* class aparently wasn't selective enough but I did try */
+#temps-block{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    text-align: center;
+}
+
+#range-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#condition-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#sun-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+hr{
+    border-bottom: 1px rgb(122, 122, 122) solid;
+    width : 85%
+}
+
+main>div>div>h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top:0px;
+    background-color: rgba(0, 110, 255, 0.164);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+img{
+    max-width: 30%;
+    margin-top: -20px;
+    padding-bottom: 30px;
+}
+
+#weather>h2{
+    padding-top: 12%;
+}
