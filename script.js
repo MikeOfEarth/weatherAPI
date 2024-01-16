@@ -143,14 +143,14 @@ function conditionBackground(condition){
   const headers=[document.getElementById('temp-header'),document.getElementById('condition-header')]
   switch (condition){
     case 'Rain':
-      document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
+      document.body.style.background="linear-gradient(to bottom right,#5c87fa 40%,#2d8be3)"
       icon.style.backgroundImage="url('./icons/rain.png')"
-      adjustHeader(headers,'#2d8be3')
+      adjustHeader(headers,'#4259d6')
       break
     case 'Mist':
-      document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
+      document.body.style.background="linear-gradient(to bottom right,#5c87fa 40%,#2d8be3)"
       icon.style.backgroundImage="url('./icons/mist.png')"
-      adjustHeader(headers,'#2d8be3')
+      adjustHeader(headers,'#4259d6')
       break
     case 'Snow':
       document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
