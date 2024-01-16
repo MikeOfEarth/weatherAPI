@@ -2,18 +2,13 @@ console.log('APIkey')
 APIkey='a0e1ef37a4d623d8998d1d965ffafe27'
 
 document.body.style.background="linear-gradient(to bottom right,#dafdfd 40%,#88b4c4)"
-// splitHeads=document.querySelectorAll(".split-head").values()
-// function headChange(ele){
-//   console.log(typeof(ele))
-//   console.log(ele)
-//   for (const el of ele){
-//     console.log(ele)
-    
-//     console.log(el)
-//     el.style.backgroundColor='red'
-//   }
-// }
-// headChange(splitHeads)
+const headers=[document.getElementById('temp-header'),document.getElementById('condition-header')]
+function adjustHeader(list,color){
+  for (const head of list){
+    head.style.backgroundColor=color
+  }
+}
+adjustHeader(headers,'#83cdf7')
 
 const zipForm = document.getElementById('zip-form')
 zipForm.addEventListener('submit', async (e) => {
@@ -93,7 +88,7 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
   }
   let tempDisplay=document.getElementById('temps')
   tempDisplay.innerHTML += 
-  `<h1 class="displays" id="temp-header" class="split-head">Current Temps </h1>
+  `<h1 class="displays" id="temp-header" id="split-head1">Current Temps </h1>
   <div class="displays" id="temps-block">
       <div class="displays" id="actual-block"> 
           <h2 class="displays" class="temp-grid" id="actual-header">Actual</h2>
@@ -116,7 +111,7 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
       </div>
   </div>`
   let sunDisplay=document.getElementById('conditions')
-  sunDisplay.innerHTML +=`<h1 class="displays" id="condition-header" class="split-head">Current Conditions </h1>
+  sunDisplay.innerHTML +=`<h1 class="displays" id="condition-header" id="split-head2">Current Conditions </h1>
   <div class="displays" id="condition-block"> 
       <div class="displays" id="weather">
           <h2 class="displays" id="cond-header">Weather</h2>
@@ -145,32 +140,38 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
 
 function conditionBackground(condition){
   const icon=document.getElementById('weather-ico')
+  const headers=[document.getElementById('temp-header'),document.getElementById('condition-header')]
   switch (condition){
     case 'Rain':
       document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
       icon.style.backgroundImage="url('./icons/rain.png')"
+      adjustHeader(headers,'#2d8be3')
       break
     case 'Mist':
       document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
       icon.style.backgroundImage="url('./icons/mist.png')"
+      adjustHeader(headers,'#2d8be3')
       break
     case 'Snow':
       document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
       icon.style.backgroundImage="url('./icons/snow.png')"
-      document.getElementsByClassName("split-head").backgroundColor='red'
+      adjustHeader(headers,'#a2a4a6')   
       break
-    case 'Cloudy':
+    case 'Clouds':
       document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
       icon.style.backgroundImage="url('./icons/cloud.png')"
+      adjustHeader(headers,'#a2a4a6')   
       break
     case 'Clear':
       document.body.style.background="linear-gradient(to bottom right,#fffbd4 40%,#ffd17a)"
       icon.style.backgroundImage="url('./icons/sun.png')"
+      adjustHeader(headers,'#fce188')
       break
-      case 'Haze':
-        document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
-        icon.style.backgroundImage="url('./icons/mist.png')"
-        break
-      
+    case 'Haze':
+    case 'Fog':
+      document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
+      icon.style.backgroundImage="url('./icons/mist.png')"
+      adjustHeader(headers,'#a2a4a6')      
+      break      
   }
 }
