@@ -7,9 +7,14 @@ header{
     margin-bottom: 30px;
     margin-left: 7%;
 }
-
+#weather-ico{
+    height:100px;
+    width:100px;
+    position:absolute;
+    top: 70%;
+    right: 15%
+}
 body{
-    /* background-image:linear-gradient(to bottom right,   rgb(218, 253, 253), rgb(136, 180, 196)); */
     height: 100%;
 }
 

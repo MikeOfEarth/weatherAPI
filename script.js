@@ -2,6 +2,18 @@ console.log('APIkey')
 APIkey='a0e1ef37a4d623d8998d1d965ffafe27'
 
 document.body.style.background="linear-gradient(to bottom right,#dafdfd 40%,#88b4c4)"
+// splitHeads=document.querySelectorAll(".split-head").values()
+// function headChange(ele){
+//   console.log(typeof(ele))
+//   console.log(ele)
+//   for (const el of ele){
+//     console.log(ele)
+    
+//     console.log(el)
+//     el.style.backgroundColor='red'
+//   }
+// }
+// headChange(splitHeads)
 
 const zipForm = document.getElementById('zip-form')
 zipForm.addEventListener('submit', async (e) => {
@@ -81,7 +93,7 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
   }
   let tempDisplay=document.getElementById('temps')
   tempDisplay.innerHTML += 
-  `<h1 class="displays" id="temp-header">Current Temps </h1>
+  `<h1 class="displays" id="temp-header" class="split-head">Current Temps </h1>
   <div class="displays" id="temps-block">
       <div class="displays" id="actual-block"> 
           <h2 class="displays" class="temp-grid" id="actual-header">Actual</h2>
@@ -104,7 +116,7 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
       </div>
   </div>`
   let sunDisplay=document.getElementById('conditions')
-  sunDisplay.innerHTML +=`<h1 class="displays" id="condition-header">Current Conditions </h1>
+  sunDisplay.innerHTML +=`<h1 class="displays" id="condition-header" class="split-head">Current Conditions </h1>
   <div class="displays" id="condition-block"> 
       <div class="displays" id="weather">
           <h2 class="displays" id="cond-header">Weather</h2>
@@ -132,17 +144,33 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
 }
 
 function conditionBackground(condition){
+  const icon=document.getElementById('weather-ico')
   switch (condition){
     case 'Rain':
+      document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
+      icon.style.backgroundImage="url('./icons/rain.png')"
+      break
     case 'Mist':
       document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
+      icon.style.backgroundImage="url('./icons/mist.png')"
       break
     case 'Snow':
       document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
+      icon.style.backgroundImage="url('./icons/snow.png')"
+      document.getElementsByClassName("split-head").backgroundColor='red'
       break
-      case 'Clear':
-        document.body.style.background="linear-gradient(to bottom right,#fffbd4 40%,#ffd17a)"
+    case 'Cloudy':
+      document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
+      icon.style.backgroundImage="url('./icons/cloud.png')"
+      break
+    case 'Clear':
+      document.body.style.background="linear-gradient(to bottom right,#fffbd4 40%,#ffd17a)"
+      icon.style.backgroundImage="url('./icons/sun.png')"
+      break
+      case 'Haze':
+        document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
+        icon.style.backgroundImage="url('./icons/mist.png')"
         break
-    
+      
   }
 }
