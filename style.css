@@ -9,7 +9,8 @@ header{
 }
 
 body{
-    background-color: rgb(200, 245, 245);
+    /* background-image:linear-gradient(to bottom right,   rgb(218, 253, 253), rgb(136, 180, 196)); */
+    height: 100%;
 }
 
 #submit{
@@ -40,7 +41,7 @@ body{
     border-radius: 6px;
     height: 25px;
     text-indent: 5px;
-    background-color: rgba(255, 255, 255, 0.705);
+    background-color: rgba(255, 255, 255, 0.649);
 }
 
 main{
@@ -53,7 +54,7 @@ main>div{
     justify-self: center;
     border-right: 3px rgb(122, 122, 122) solid;
     border-bottom: 3px rgb(122, 122, 122) solid;
-    background-color: rgba(255, 255, 255, 0.274);
+    background-color: rgba(255, 255, 255, 0.618);
     border-radius: 10px;
     width: 40%;
 }
@@ -112,6 +113,4 @@ img{
     padding-bottom: 30px;
 }
 
-#weather>h2{
-    padding-top: 12%;
-}
+

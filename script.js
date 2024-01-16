@@ -1,6 +1,8 @@
 console.log('APIkey')
 APIkey='a0e1ef37a4d623d8998d1d965ffafe27'
 
+document.body.style.background="linear-gradient(to bottom right,#dafdfd 40%,#88b4c4)"
+
 const zipForm = document.getElementById('zip-form')
 zipForm.addEventListener('submit', async (e) => {
   e.preventDefault()
@@ -22,7 +24,14 @@ async function getLocation(zipcode){
   const res = await fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},US&appid=${APIkey}`)
   if (res.ok){
     return await res.json()
-  }  
+  }  else {
+    const errorHeading = {'zip':'Error','name':'Zipcode does not exist. Try again.' }
+    console.log(errorHeading)
+    
+    console.log(errorHeading['zip'])
+    setHead(errorHeading)
+    throw new Error('Zipcode non existent')
+  }
 }
 
 function setHead(locationData){
@@ -67,7 +76,6 @@ function epochConvert(epoch){
 
 function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
   const displays=document.querySelectorAll(".displays")
-  console.log(displays)
   for (section of displays){
     section.remove()
   }
@@ -120,11 +128,21 @@ function displayBuild({condition,temp,high,low,feels,humidity,sunrise,sunset}){
           <h3 class="displays" id="set-time">${sunset[1]}</h3>
       </div>
   </div>`
+  conditionBackground(condition)
 }
 
-// findWeather=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`
-
-// zipcode=`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},${countrycode}&appid=${APIkey}`
-
-'http://api.openweathermap.org/geo/1.0/zip?zip=12198,1&appid=${APIkey}'
-
+function conditionBackground(condition){
+  switch (condition){
+    case 'Rain':
+    case 'Mist':
+      document.body.style.background="linear-gradient(to bottom right,#517ffc 40%,#2d8be3)"
+      break
+    case 'Snow':
+      document.body.style.background="linear-gradient(to bottom right,#dcddde 70%,#939496)"
+      break
+      case 'Clear':
+        document.body.style.background="linear-gradient(to bottom right,#fffbd4 40%,#ffd17a)"
+        break
+    
+  }
+}
